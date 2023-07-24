@@ -39,11 +39,12 @@ const hintUponHints = ["Dream within a dream within a dream...", "If it bleeds..
 
 function inputRefine(inp) {
     if (/[^a-zA-Z]/.test(inp) === false) {
-        return inp.replace(/[^a-zA-Z]/g, '').toUpperCase();
+        gameStatusDisp.innerHTML = ``
+        return inp.replace(/[^a-zA-Z]/g, '').toUpperCase()
     } else {
-        gameStatusDisp.innerHTML = `Enter proper value`;
-    };
-};
+        gameStatusDisp.innerHTML = `Enter proper value`
+    }
+}
 
 function getRandom(array1, array2, min) {
     if (min === 0) {
@@ -120,15 +121,15 @@ function hangedMan() {
             lftArm.style.display = "block";
             break;
         case (wrongLetterArray.length === 3):
-            gameStatusDisp.innerHTML = `You 4 wrong letters left`;
+            gameStatusDisp.innerHTML = `You have 4 wrong letters left`;
             trunk.style.display = "block";
             break;
         case (wrongLetterArray.length === 2):
-            gameStatusDisp.innerHTML = `You 5 wrong letters left`;
+            gameStatusDisp.innerHTML = `You have 5 wrong letters left`;
             theNeck.style.display = "block";
             break;
         case (wrongLetterArray.length === 1):
-            gameStatusDisp.innerHTML = `You 6 wrong letters left`;
+            gameStatusDisp.innerHTML = `You have 6 wrong letters left`;
             theHead.style.display = "block";
             break;
     };
@@ -201,15 +202,15 @@ firstBtn.addEventListener('click', () => {
 });
 
 doneBtn.addEventListener('click', () => {
-    gameStatusDisp.innerHTML = '';
-    letter = inputRefine(letterInp.value);
+    gameStatusDisp.innerHTML = ''
+    letter = inputRefine(letterInp.value)
     if (letter === undefined || letter === '' || letter.length > 1 || letter.length < 1) {
-        gameStatusDisp.innerHTML = `Enter proper value`;
+        gameStatusDisp.innerHTML = `Enter proper value`
         return;
-    };
-    
-    gameState(letter, word);
-    letterInp.value = '';
+    }
+
+    gameState(letter, word)
+    letterInp.value = ''
     inputColor(letterInp, "", -1, 9);
 });
 
